@@ -35,13 +35,20 @@ class BooksApp extends React.Component {
     });
   }
 
-  changeShelf = (selectedBook, shelf) => {
+  changeShelf = (selectedBook, prevShelf, newShelf) => {
     let newState = Object.assign({}, this.state);
-    newState.books.find((book) => book.id === selectedBook.id).shelf = shelf;
+
+    newState.books[prevShelf].find(
+      (book) => book.id === selectedBook.id
+    ).shelf = newShelf;
+
+    newState.books[newShelf] = [...newState.books[newShelf], ...[selectedBook]];
+    newState.books[prevShelf] = newState.books[prevShelf].filter(
+      (book) => book.id !== selectedBook.id
+    );
+
     this.setState(newState);
-    booksAPI.update(selectedBook, shelf).then((result) => {
-      console.log(result);
-    });
+    booksAPI.update(selectedBook, newShelf);
   };
 
   render() {

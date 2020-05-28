@@ -24,7 +24,7 @@ const CurrentlyReading = (props) => {
                     <div className="book-shelf-changer">
                       <select
                         onChange={(e) => {
-                          action(item, e.target.value);
+                          action(item, item.shelf, e.target.value);
                         }}
                         value={item.shelf}
                       >
