@@ -26,6 +26,7 @@ const AlreadyRead = (props) => {
                         onChange={(e) => {
                           action(item, e.target.value);
                         }}
+                        value={item.shelf}
                       >
                         <option value="move" disabled>
                           Move to...

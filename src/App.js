@@ -5,32 +5,50 @@ import BookList from "./components/BookList";
 import SearchPage from "./components/SearchPage";
 import { Route } from "react-router-dom";
 import { CoffeeLoading } from "react-loadingg";
-
+import * as shelfNames from "./utils/shelfNames";
 class BooksApp extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      books: [],
+      books: {
+        currentlyReading: [],
+        wantToRead: [],
+        read: [],
+      },
     };
   }
 
   componentDidMount() {
-    booksAPI.getAll().then((books) => {
+    booksAPI.getAll().then((resBooks) => {
       this.setState(() => ({
-        books: books,
+        books: {
+          currentlyReading: resBooks.filter(
+            (book) => book.shelf === shelfNames.CURRENTLY_READING
+          ),
+          wantToRead: resBooks.filter(
+            (book) => book.shelf === shelfNames.WANT_TO_READ
+          ),
+          read: resBooks.filter((book) => book.shelf === shelfNames.READ),
+        },
       }));
     });
   }
 
-  changeShelf = (book, shelf) => {
-    console.log(book.title + "  " + shelf);
-
-    booksAPI.update(book, shelf);
+  changeShelf = (selectedBook, shelf) => {
+    let newState = Object.assign({}, this.state);
+    newState.books.find((book) => book.id === selectedBook.id).shelf = shelf;
+    this.setState(newState);
+    booksAPI.update(selectedBook, shelf).then((result) => {
+      console.log(result);
+    });
   };
 
   render() {
-    return this.state.books.length !== 0 ? (
+    const { books } = this.state;
+    return books.currentlyReading.length !== 0 ||
+      books.wantToRead.length !== 0 ||
+      books.read.length !== 0 ? (
       <div className="app">
         <Route
           exact

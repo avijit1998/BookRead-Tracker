@@ -5,6 +5,7 @@ import WantToRead from "./WantToRead";
 import AlreadyRead from "./AlreadyRead";
 const BookList = (props) => {
   const { books, changeShelf } = props;
+
   return (
     <div className="list-books">
       <div className="list-books-title">
@@ -13,17 +14,11 @@ const BookList = (props) => {
       <div className="list-books-content">
         <div>
           <CurrentlyReading
-            items={books.filter((book) => book.shelf === "currentlyReading")}
+            items={books.currentlyReading}
             action={changeShelf}
           />
-          <WantToRead
-            items={books.filter((book) => book.shelf === "wantToRead")}
-            action={changeShelf}
-          />
-          <AlreadyRead
-            items={books.filter((book) => book.shelf === "read")}
-            action={changeShelf}
-          />
+          <WantToRead items={books.wantToRead} action={changeShelf} />
+          <AlreadyRead items={books.read} action={changeShelf} />
         </div>
       </div>
       <div className="open-search">
