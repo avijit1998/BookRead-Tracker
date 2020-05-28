@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/BookRead-Tracker/static/css/main.95ef0747.chunk.css",
-    "main.js": "/BookRead-Tracker/static/js/main.1ec51fe0.chunk.js",
-    "main.js.map": "/BookRead-Tracker/static/js/main.1ec51fe0.chunk.js.map",
+    "main.js": "/BookRead-Tracker/static/js/main.4ab8d398.chunk.js",
+    "main.js.map": "/BookRead-Tracker/static/js/main.4ab8d398.chunk.js.map",
     "runtime-main.js": "/BookRead-Tracker/static/js/runtime-main.0109503d.js",
     "runtime-main.js.map": "/BookRead-Tracker/static/js/runtime-main.0109503d.js.map",
-    "static/js/2.628b3b0b.chunk.js": "/BookRead-Tracker/static/js/2.628b3b0b.chunk.js",
-    "static/js/2.628b3b0b.chunk.js.map": "/BookRead-Tracker/static/js/2.628b3b0b.chunk.js.map",
+    "static/js/2.1266544f.chunk.js": "/BookRead-Tracker/static/js/2.1266544f.chunk.js",
+    "static/js/2.1266544f.chunk.js.map": "/BookRead-Tracker/static/js/2.1266544f.chunk.js.map",
     "index.html": "/BookRead-Tracker/index.html",
-    "precache-manifest.85b9b6147a296a479c548ada73afc104.js": "/BookRead-Tracker/precache-manifest.85b9b6147a296a479c548ada73afc104.js",
+    "precache-manifest.a5fb825339d9740ca93dc757308035e5.js": "/BookRead-Tracker/precache-manifest.a5fb825339d9740ca93dc757308035e5.js",
     "service-worker.js": "/BookRead-Tracker/service-worker.js",
     "static/css/main.95ef0747.chunk.css.map": "/BookRead-Tracker/static/css/main.95ef0747.chunk.css.map",
-    "static/js/2.628b3b0b.chunk.js.LICENSE.txt": "/BookRead-Tracker/static/js/2.628b3b0b.chunk.js.LICENSE.txt",
+    "static/js/2.1266544f.chunk.js.LICENSE.txt": "/BookRead-Tracker/static/js/2.1266544f.chunk.js.LICENSE.txt",
     "static/media/App.css": "/BookRead-Tracker/static/media/arrow-drop-down.9d4e3f36.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.0109503d.js",
-    "static/js/2.628b3b0b.chunk.js",
+    "static/js/2.1266544f.chunk.js",
     "static/css/main.95ef0747.chunk.css",
-    "static/js/main.1ec51fe0.chunk.js"
+    "static/js/main.4ab8d398.chunk.js"
   ]
 }
