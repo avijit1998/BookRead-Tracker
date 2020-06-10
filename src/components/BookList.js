@@ -1,11 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CurrentlyReading from "./CurrentlyReading";
-import WantToRead from "./WantToRead";
-import AlreadyRead from "./AlreadyRead";
-const BookList = (props) => {
-  const { books, changeShelf } = props;
-
+import Shelf from "./Shelf";
+const BookList = ({ books, changeShelf }) => {
   return (
     <div className="list-books">
       <div className="list-books-title">
@@ -13,12 +9,17 @@ const BookList = (props) => {
       </div>
       <div className="list-books-content">
         <div>
-          <CurrentlyReading
-            items={books.currentlyReading}
-            action={changeShelf}
+          <Shelf
+            books={books.currentlyReading}
+            changeShelf={changeShelf}
+            label="Currently Reading"
           />
-          <WantToRead items={books.wantToRead} action={changeShelf} />
-          <AlreadyRead items={books.read} action={changeShelf} />
+          <Shelf
+            books={books.wantToRead}
+            changeShelf={changeShelf}
+            label="Want to Read"
+          />
+          <Shelf books={books.read} changeShelf={changeShelf} label="Read" />
         </div>
       </div>
       <div className="open-search">
