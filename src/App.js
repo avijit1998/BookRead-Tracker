@@ -6,6 +6,7 @@ import SearchPage from "./components/SearchPage";
 import { Route } from "react-router-dom";
 import { CoffeeLoading } from "react-loadingg";
 import * as shelfNames from "./utils/shelfNames";
+import cloneDeep from "lodash.clonedeep";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -48,7 +49,7 @@ class App extends React.Component {
   }
 
   changeShelf = (selectedBook, prevShelf, newShelf) => {
-    let newState = Object.assign({}, this.state);
+    let newState = cloneDeep(this.state);
 
     selectedBook.shelf = newShelf;
 
@@ -72,16 +73,14 @@ class App extends React.Component {
       ];
     }
 
-    let oldState = Object.assign({}, this.state);
+    let oldState = cloneDeep(this.state);
 
     this.setState(newState);
 
     booksAPI.update(selectedBook, newShelf).catch(() => {
-      // oldState.dataReceived = true;
-      // oldState.loading = false;
-
+      oldState.dataReceived = true;
+      oldState.loading = false;
       this.setState(oldState);
-      // this.forceUpdate();
     });
   };
 
